@@ -32,7 +32,9 @@
             </ul>
         </div>
         <div class="ml-auto">
-            <button class="btn btn-light mr-2" data-toggle="modal" data-target="#login.php">Login</button>
+            <!-- Botón de Login -->
+            <button class="btn btn-light mr-2" data-toggle="modal" data-target="#loginModal">Login</button>
+            <!-- Botón de Registro -->
             <button class="btn btn-light" data-toggle="modal" data-target="#registerModal">Registrar</button>
         </div>
     </nav>
@@ -46,13 +48,48 @@
         <p>&copy; <?php echo date("Y"); ?> Mi Página con Bootstrap</p>
     </footer>
 
-    <!-- Modales para Login y Registro -->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <!-- Agrega aquí el contenido del modal de login -->
-    </div>
-
+    <!-- Modal de Registro -->
     <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
-        <!-- Agrega aquí el contenido del modal de registro -->
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Registro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario de Registro -->
+                    <form id="registerForm" action="register.php" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="newUsername">Nuevo Nombre de usuario</label>
+                            <input type="text" class="form-control" id="newUsername" name="newUsername" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">Nueva Contraseña</label>
+                            <input type="password" class="form-control" id="newPassword" name="newPassword" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Selecciona una opción:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="photoOption" id="selectFile" value="selectFile" checked>
+                                <label class="form-check-label" for="selectFile">Seleccionar Archivo</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="photoOption" id="activateCamera" value="activateCamera">
+                                <label class="form-check-label" for="activateCamera">Activar Cámara</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="userPhoto">Foto (opcional)</label>
+                            <input type="file" class="form-control-file" id="userPhoto" name="userPhoto">
+                        </div>
+                        <button type="button" id="captureButton" class="btn btn-primary">Capturar Foto</button>
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -60,6 +97,27 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <!-- Agrega aquí tus scripts o enlaces a scripts personalizados si es necesario -->
+    <script>
+        // Manejar la activación de la cámara y captura de foto
+        document.getElementById('activateCamera').addEventListener('change', function () {
+            var captureButton = document.getElementById('captureButton');
+            var userPhotoInput = document.getElementById('userPhoto');
+
+            if (this.checked) {
+                captureButton.style.display = 'block';
+                userPhotoInput.setAttribute('disabled', 'disabled');
+            } else {
+                captureButton.style.display = 'none';
+                userPhotoInput.removeAttribute('disabled');
+            }
+        });
+
+        // Capturar foto desde la cámara
+        document.getElementById('captureButton').addEventListener('click', function () {
+            // Aquí debes agregar el código para capturar la foto desde la cámara
+            alert('Capturando foto desde la cámara...');
+        });
+    </script>
 
 </body>
-</html
+</html>

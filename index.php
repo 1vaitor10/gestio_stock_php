@@ -92,32 +92,59 @@
         </div>
     </div>
 
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captura de Cámara</title>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-    <!-- Agrega aquí tus scripts o enlaces a scripts personalizados si es necesario -->
-    <script>
-        // Manejar la activación de la cámara y captura de foto
-        document.getElementById('activateCamera').addEventListener('change', function () {
-            var captureButton = document.getElementById('captureButton');
-            var userPhotoInput = document.getElementById('userPhoto');
+<input type="checkbox" id="activateCamera"> Activar Cámara
 
-            if (this.checked) {
-                captureButton.style.display = 'block';
-                userPhotoInput.setAttribute('disabled', 'disabled');
-            } else {
-                captureButton.style.display = 'none';
-                userPhotoInput.removeAttribute('disabled');
-            }
-        });
+<button id="captureButton" style="display: none;">Capturar Foto</button>
 
-        // Capturar foto desde la cámara
-        document.getElementById('captureButton').addEventListener('click', function () {
-            // Aquí debes agregar el código para capturar la foto desde la cámara
-            alert('Capturando foto desde la cámara...');
-        });
-    </script>
+<!-- Agrega aquí tus scripts o enlaces a scripts personalizados si es necesario -->
+<script>
+    document.getElementById('activateCamera').addEventListener('change', function () {
+        var captureButton = document.getElementById('captureButton');
+        var userPhotoInput = document.getElementById('userPhoto');
+
+        if (this.checked) {
+            captureButton.style.display = 'block';
+            userPhotoInput.setAttribute('disabled', 'disabled');
+            activateCamera();
+        } else {
+            captureButton.style.display = 'none';
+            userPhotoInput.removeAttribute('disabled');
+        }
+    });
+
+    document.getElementById('captureButton').addEventListener('click', function () {
+        capturePhoto();
+    });
+
+    function activateCamera() {
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function (stream) {
+                var video = document.createElement('video');
+                video.srcObject = stream;
+                document.body.appendChild(video);
+            })
+            .catch(function (error) {
+                console.error('Error al activar la cámara:', error);
+            });
+    }
+
+    function capturePhoto() {
+        // Aquí debes agregar el código para capturar la foto desde la cámara
+        alert('Capturando foto desde la cámara...');
+    }
+</script>
 
 </body>
 </html>

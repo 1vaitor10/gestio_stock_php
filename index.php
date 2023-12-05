@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página con Bootstrap</title>
+    <title>Gestio de Stock</title>
     <!-- Enlace al archivo CSS de Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- Agrega aquí tus enlaces a hojas de estilo personalizadas si es necesario -->
@@ -11,7 +11,7 @@
 <body>
 
     <header class="bg-primary text-white text-center py-5">
-        <h1>Mi Página con Bootstrap</h1>
+        <h1>Gestio de Stock</h1>
     </header>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

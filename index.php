@@ -3,67 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Stock con Bootstrap</title>
+    <title>Mi Página con Bootstrap</title>
+    <!-- Enlace al archivo CSS de Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- Agrega aquí tus enlaces a hojas de estilo personalizadas si es necesario -->
 </head>
 <body>
 
     <header class="bg-primary text-white text-center py-5">
-        <h1>Gestión de Stock</h1>
+        <h1>Mi Página con Bootstrap</h1>
     </header>
 
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Inventario</h2>
-                <!-- Aquí puedes agregar una tabla con la lista de productos en inventario -->
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Producto</th>
-                            <th>Cantidad</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Producto A</td>
-                            <td>50</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Producto B</td>
-                            <td>30</td>
-                        </tr>
-                        <!-- Agrega más filas según sea necesario -->
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="col-md-8">
-                <h2>Registrar Nuevo Producto</h2>
-                <!-- Aquí puedes agregar un formulario para registrar nuevos productos -->
-                <form>
-                    <div class="form-group">
-                        <label for="nombreProducto">Nombre del Producto</label>
-                        <input type="text" class="form-control" id="nombreProducto" placeholder="Ingrese el nombre del producto">
-                    </div>
-                    <div class="form-group">
-                        <label for="cantidad">Cantidad</label>
-                        <input type="number" class="form-control" id="cantidad" placeholder="Ingrese la cantidad">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Registrar Producto</button>
-                </form>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Inicio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Página Principal</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Acerca de</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contacto</a>
+                </li>
+            </ul>
         </div>
-    </div>
+    </nav>
 
-    <footer class="bg-dark text-white text-center py-3 mt-5">
-        <p>&copy; <?php echo date("Y"); ?> Gestión de Stock con Bootstrap</p>
+    <section class="container mt-5">
+        <h2>Contenido Principal</h2>
+        <p>Este es un ejemplo de una página web con Bootstrap. Puedes utilizar las clases de Bootstrap para dar estilo a tus elementos y hacer que la página sea receptiva.</p>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; <?php echo date("Y"); ?> Mi Página con Bootstrap</p>
     </footer>
 
+    <!-- Enlace a los scripts de Bootstrap (jQuery y Popper.js son requeridos para algunas funcionalidades de Bootstrap) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

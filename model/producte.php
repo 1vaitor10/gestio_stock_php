@@ -8,12 +8,7 @@ require_once "producte/database.php";
         public $fimagen;
         public $data;
           
-        public function mostrar(){
-            $connexio = database::connectar();
-            $sql = "SELECT * FROM productos";
-            $result = mysqli_query($connexio, $sql);
-            return $result;
-        }
+     
         
     
         
@@ -118,6 +113,12 @@ require_once "producte/database.php";
 
                 return $this;
         }
-    }
     
+    public function mostrar(){
+        $connexio = database::connectar();
+        $sql = "SELECT * FROM productos";
+        $result = mysqli_query($connexio, $sql);
+        return $result;
+    }
+}
     ?>

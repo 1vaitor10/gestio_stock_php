@@ -32,9 +32,8 @@
             </ul>
         </div>
         <div class="ml-auto">
-            <!-- Botón de Login -->
-            <button class="btn btn-light mr-2" data-toggle="modal" data-target="#loginModal">Login</button>
-            <!-- Botón de Registro -->
+            <a class="btn btn-light mr-2" href="login.php">Login</a>
+
             <button class="btn btn-light" data-toggle="modal" data-target="#registerModal">Registrar</button>
         </div>
     </nav>

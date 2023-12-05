@@ -84,6 +84,8 @@
                             <input type="file" class="form-control-file" id="userPhoto" name="userPhoto">
                         </div>
                         <button type="button" id="captureButton" class="btn btn-primary">Capturar Foto</button>
+                        <canvas id="photoCanvas" style="display: none;"></canvas>
+                        <img id="capturedImage" style="display: none;" class="img-fluid" alt="Captured Image">
                         <button type="submit" class="btn btn-primary">Registrar</button>
                     </form>
                 </div>
@@ -95,42 +97,56 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    <!-- Agrega aquí tus scripts o enlaces a scripts personalizados si es necesario -->
     <script>
-        document.getElementById('activateCamera').addEventListener('change', function () {
-            var captureButton = document.getElementById('captureButton');
-            var userPhotoInput = document.getElementById('userPhoto');
+    document.getElementById('activateCamera').addEventListener('change', function () {
+        var captureButton = document.getElementById('captureButton');
+        var userPhotoInput = document.getElementById('userPhoto');
+        var photoCanvas = document.getElementById('photoCanvas');
+        var capturedImage = document.getElementById('capturedImage');
 
-            if (this.checked) {
-                captureButton.style.display = 'block';
-                userPhotoInput.setAttribute('disabled', 'disabled');
-                activateCamera();
-            } else {
-                captureButton.style.display = 'none';
-                userPhotoInput.removeAttribute('disabled');
-            }
-        });
-
-        document.getElementById('captureButton').addEventListener('click', function () {
-            capturePhoto();
-        });
-
-        function activateCamera() {
-            navigator.mediaDevices.getUserMedia({ video: true })
-                .then(function (stream) {
-                    var video = document.createElement('video');
-                    video.srcObject = stream;
-                    document.body.appendChild(video);
-                })
-                .catch(function (error) {
-                    console.error('Error al activar la cámara:', error);
-                });
+        if (this.checked) {
+            captureButton.style.display = 'block';
+            userPhotoInput.setAttribute('disabled', 'disabled');
+            photoCanvas.style.display = 'block';
+            capturedImage.style.display = 'none';
+            activateCamera();
+        } else {
+            captureButton.style.display = 'none';
+            userPhotoInput.removeAttribute('disabled');
+            photoCanvas.style.display = 'none';
+            capturedImage.style.display = 'none';
         }
+    });
 
-        function capturePhoto() {
-            // Aquí debes agregar el código para capturar la foto desde la cámara
-            alert('Capturando foto desde la cámara...');
-        }
+    document.getElementById('captureButton').addEventListener('click', function () {
+        capturePhoto();
+    });
+
+    function activateCamera() {
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function (stream) {
+                var video = document.createElement('video');
+                video.srcObject = stream;
+                document.body.appendChild(video);
+            })
+            .catch(function (error) {
+                console.error('Error al activar la cámara:', error);
+            });
+    }
+
+    function capturePhoto() {
+        var photoCanvas = document.getElementById('photoCanvas');
+        var context = photoCanvas.getContext('2d');
+        var capturedImage = document.getElementById('capturedImage');
+
+        // Assuming you have a video with id 'video'
+        var video = document.querySelector('video');
+        context.drawImage(video, 0, 0, photoCanvas.width, photoCanvas.height);
+
+        // Display the captured image on the page
+        capturedImage.src = photoCanvas.toDataURL('image/jpeg');
+        capturedImage.style.display = 'block';
+    }
     </script>
 
 </body>

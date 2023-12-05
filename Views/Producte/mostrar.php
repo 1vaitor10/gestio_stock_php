@@ -32,7 +32,7 @@
           
     </tr>
     <?php
-        while ($row = $usuaris->fetch_assoc()) {
+        while ($row = $productes->fetch_asoc()) {
             echo "<tr>";
             echo "<td>" . $row["id"] . "</td>";
             echo "<td>" . $row["categoria"] . "</td>";

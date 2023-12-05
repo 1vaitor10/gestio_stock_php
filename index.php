@@ -32,9 +32,12 @@
             </ul>
         </div>
         <div class="ml-auto">
-            <a class="btn btn-light mr-2" href="login.php">Login</a>
-
-            <button class="btn btn-light" data-toggle="modal" data-target="#registerModal">Registrar</button>
+    <form class="form-inline" id="registerForm" action="registre.php" method="post" enctype="multipart/form-data">
+        <a class="btn btn-light mr-2" href="login.php">Login</a>
+        <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+</div>
+            
         </div>
     </nav>
 
@@ -96,58 +99,3 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-    <script>
-    document.getElementById('activateCamera').addEventListener('change', function () {
-        var captureButton = document.getElementById('captureButton');
-        var userPhotoInput = document.getElementById('userPhoto');
-        var photoCanvas = document.getElementById('photoCanvas');
-        var capturedImage = document.getElementById('capturedImage');
-
-        if (this.checked) {
-            captureButton.style.display = 'block';
-            userPhotoInput.setAttribute('disabled', 'disabled');
-            photoCanvas.style.display = 'block';
-            capturedImage.style.display = 'none';
-            activateCamera();
-        } else {
-            captureButton.style.display = 'none';
-            userPhotoInput.removeAttribute('disabled');
-            photoCanvas.style.display = 'none';
-            capturedImage.style.display = 'none';
-        }
-    });
-
-    document.getElementById('captureButton').addEventListener('click', function () {
-        capturePhoto();
-    });
-
-    function activateCamera() {
-        navigator.mediaDevices.getUserMedia({ video: true })
-            .then(function (stream) {
-                var video = document.createElement('video');
-                video.srcObject = stream;
-                document.body.appendChild(video);
-            })
-            .catch(function (error) {
-                console.error('Error al activar la cámara:', error);
-            });
-    }
-
-    function capturePhoto() {
-        var photoCanvas = document.getElementById('photoCanvas');
-        var context = photoCanvas.getContext('2d');
-        var capturedImage = document.getElementById('capturedImage');
-
-        // Assuming you have a video with id 'video'
-        var video = document.querySelector('video');
-        context.drawImage(video, 0, 0, photoCanvas.width, photoCanvas.height);
-
-        // Display the captured image on the page
-        capturedImage.src = photoCanvas.toDataURL('image/jpeg');
-        capturedImage.style.display = 'block';
-    }
-    </script>
-
-</body>
-</html>

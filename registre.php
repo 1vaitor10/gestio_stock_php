@@ -1,3 +1,68 @@
+
+<!-- Modal de Registro -->
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+               
+                    <div class="form-group">
+                        <label>Selecciona una opción:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="photoOption" id="selectFile" value="selectFile" checked>
+                            <label class="form-check-label" for="selectFile">Seleccionar Archivo</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="photoOption" id="activateCamera" value="activateCamera">
+                            <label class="form-check-label" for="activateCamera">Activar Cámara</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="userPhoto">Foto (opcional)</label>
+                        <input type="file" class="form-control-file" id="userPhoto" name="userPhoto">
+                    </div>
+                    <video id="video" width="640" height="480" autoplay></video>
+                    <br>
+                    <button id="captureButton" class="btn btn-primary">Capturar Foto</button>
+                    <canvas id="canvas" width="640" height="480"></canvas>
+                    <img id="capturedImage" style="display: none;" class="img-fluid" alt="Captured Image">
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var video = document.getElementById('video');
+        var canvas = document.getElementById('canvas');
+        var captureButton = document.getElementById('captureButton');
+
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function (stream) {
+                video.srcObject = stream;
+            })
+            .catch(function (error) {
+                console.error('Error al activar la cámara:', error);
+            });
+
+        captureButton.addEventListener('click', function () {
+            var context = canvas.getContext('2d');
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            // Aquí puedes enviar la imagen capturada al servidor junto con la información del formulario de registro.
+            // Ajusta el código según las necesidades de tu backend.
+
+            // Supongamos que tienes un archivo upload.php en el servidor.
+            fetch('upload.php', {
+                method: 'POST',
+                body: new FormData(document.getElementById('registerForm'))
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error al enviar la imagen:', error));
+        });
+    });
+</script>
+
 <html lang="en">
     
 <head>
@@ -21,7 +86,12 @@
         <br>
         <br>
         <input type="submit" name="submit" value="Registrarse">
-    </form>
+    </form>      <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">Registro</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+  
         <?php
             if(isset($_POST['submit'])){
                 $nom = $_POST['nom'];

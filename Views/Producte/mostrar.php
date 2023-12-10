@@ -32,7 +32,7 @@
           
     </tr>
     <?php
-        while ($row = $productes->fetch_asoc()) {
+       
             echo "<tr>";
             echo "<td>" . $row["id"] . "</td>";
             echo "<td>" . $row["categoria"] . "</td>";
@@ -42,7 +42,7 @@
             echo '<td><a class="btn btn-warning" href="index.php?controller=usuari&action=actualitzar&user_id=' . $row["id"] . '" role="button">Actualizar</a></td>';
             echo '<td><a class="btn btn-danger" href="index.php?controller=usuari&action=EsborrarUsuari&user_id=' . $row["id"] . '" role="button">Eliminar</a></td>';
             echo "</tr>";
-        }
+   
         ?>
     </table>
     <br><a class="btn btn-primary btn-lg active" href="index.php?controller=usuari&action=insertar">Insertar</a></button>

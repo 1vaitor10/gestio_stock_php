@@ -1,6 +1,6 @@
 <?php 
 
-require_once "producte/database.php";  
+require_once "model/database.php";  
     class producte{   
         public $id;
         public $categoria;

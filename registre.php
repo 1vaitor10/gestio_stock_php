@@ -99,10 +99,10 @@
                 $contrasenya2 = $_POST['contrasenya2'];
                 if($contrasenya == $contrasenya2){
                     echo "111";
-                    $server = "victq1-loginphp.db.tb-hosting.com";
-                    $user = "victq1_vinvernon";
-                    $password = "18ntJA23";
-                    $dbname = "victq1_loginphp";
+                    $server = "localhoost";
+                    $user = "root";
+                    $password = "";
+                    $dbname = "stock_de_stock";
                     // Conectar
                     $db = new mysqli($server, $user, $password, $dbname);
                     echo "222";

@@ -1,7 +1,7 @@
 <?php 
 
 function autocargar($classname){
-    include "controller/" .  $classname . ".php";
+    include "Controller/" .  $classname . ".php";
 }
 
 spl_autoload_register("autocargar");

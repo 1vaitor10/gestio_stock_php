@@ -6,7 +6,7 @@ class producteController {
     public function mostrartot() {
         $producte = new producte();
         $productes = $producte->mostrar();
-        require_once "views/producte/mostrar.php";
+        require_once "Views/Producte/mostrar.php";
     }
 }
 ?>

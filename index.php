@@ -23,7 +23,7 @@
 </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="index.php?Controller=producte&action=mostrartot">Producte</a>
+          <a class="nav-link active" aria-current="page" href="index.php?controller=producte&action=mostrartot">Producte</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="index.php?controller=nota&action=llistar">Notes</a>
@@ -45,8 +45,8 @@
 
 require_once "autoload.php";
 
-if(isset($_GET["Controller"]) && class_exists($_GET["Controller"]) ){
-    $nomcontroller = $_GET["Controller"] . "Controller";
+if(isset($_GET["controller"]) && class_exists($_GET["controller"]) ){
+    $nomcontroller = $_GET["controller"] . "controller";
     $controller = new $nomcontroller();
 
     if(isset($_GET["action"]) && method_exists($controller,$_GET["action"])){

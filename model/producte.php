@@ -87,9 +87,9 @@ require_once "database.php";
          *
          * @return  self
          */ 
-        public function setImagen($fimagen)
+        public function setImagen($imagen)
         {
-                $this->imagen = $fimagen;
+                $this->imagen = $imagen;
 
                 return $this;
         }
@@ -107,7 +107,7 @@ require_once "database.php";
          *
          * @return  self
          */ 
-        public function setData($fecha)
+        public function setFecha($fecha)
         {
                 $this->fecha = $fecha;
 
@@ -117,6 +117,12 @@ require_once "database.php";
     public function mostrar(){
         $connexio = database::connectar();
         $sql = "SELECT * FROM productos";
+        $result = mysqli_query($connexio, $sql);
+        return $result;
+    }
+    public function insertar(){
+        $connexio = database::connectar();
+        $sql = "INSERT INTO productos VALUES (null,'$this->categoria','$this->nombre','$this->fecha','$this->imagen')";
         $result = mysqli_query($connexio, $sql);
         return $result;
     }

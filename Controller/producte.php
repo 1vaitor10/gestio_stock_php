@@ -8,5 +8,8 @@ class producteController {
         $productes = $producte->mostrar();
         require_once "Views/Producte/mostrar.php";
     }
+    public function insertar(){
+        require_once "Views/Producte/insertar.php";
+    }
 }
 ?>

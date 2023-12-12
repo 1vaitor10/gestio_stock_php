@@ -89,7 +89,7 @@
                         <button type="button" id="captureButton" class="btn btn-primary">Capturar Foto</button>
                         <canvas id="photoCanvas" style="display: none;"></canvas>
                         <img id="capturedImage" style="display: none;" class="img-fluid" alt="Captured Image">
-                        <button type="submit" class="btn btn-primary">Registrar</button>
+                     
                     </form>
                 </div>
             </div>

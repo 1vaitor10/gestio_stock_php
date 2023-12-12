@@ -15,7 +15,7 @@
             die("La conexión ha fallado, error número " . $db->connect_errno . ": " . $db->connect_error);
         }
 
-        $stmt = $db->prepare("SELECT `username`, `Contrasenya` FROM `usuari` WHERE `username`=? ");
+        $stmt = $db->prepare("SELECT `contraseña`,`nombre_usuario` FROM `usuarios` WHERE `nombre_usuario`=? ");
         $stmt->bind_param('s', $nom);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -23,9 +23,9 @@
         $stmt->close();
         $db->close();
 
-        if (password_verify($contrasenya, $row['Contrasenya'])) {
+        if (password_verify($contrasenya, $row['contraseña'])) {
             $_SESSION['nom'] = $nom;
-            header("Location: inici.php");
+            header("Location: mostrar.php");
             exit(); // Asegura que no se envíe nada más después de la redirección
         } else {
             echo "Les credencials son incorrectes";

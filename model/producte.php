@@ -1,12 +1,12 @@
 <?php 
 
-require_once "model/database.php";  
+require_once "database.php";  
     class producte{   
         public $id;
         public $categoria;
         public $nombre;
-        public $fimagen;
-        public $data;
+        public $imagen;
+        public $fecha;
           
      
         
@@ -77,9 +77,9 @@ require_once "model/database.php";
         /**
          * Get the value of fimagen
          */ 
-        public function getFimagen()
+        public function getImagen()
         {
-                return $this->fimagen;
+                return $this->imagen;
         }
 
         /**
@@ -87,9 +87,9 @@ require_once "model/database.php";
          *
          * @return  self
          */ 
-        public function setFimagen($fimagen)
+        public function setImagen($fimagen)
         {
-                $this->fimagen = $fimagen;
+                $this->imagen = $fimagen;
 
                 return $this;
         }
@@ -97,9 +97,9 @@ require_once "model/database.php";
         /**
          * Get the value of data
          */ 
-        public function getData()
+        public function getFecha()
         {
-                return $this->data;
+                return $this->fecha;
         }
 
         /**
@@ -107,9 +107,9 @@ require_once "model/database.php";
          *
          * @return  self
          */ 
-        public function setData($data)
+        public function setData($fecha)
         {
-                $this->data = $data;
+                $this->fecha = $fecha;
 
                 return $this;
         }

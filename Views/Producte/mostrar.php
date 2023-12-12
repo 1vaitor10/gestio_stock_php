@@ -23,8 +23,9 @@
         <th>id</th>
         <th>categoria</th>
         <th>nombre</th>
-        <th>fimatge</th>
-        <th>data</th>
+        <th>Fecha</th>
+        <th>imatge</th>
+        
         <th>actualitzar</th>
         <th>eliminar</th>
         
@@ -36,8 +37,8 @@
             echo "<td>" . $row["id"] . "</td>";
             echo "<td>" . $row["categoria"] . "</td>";
             echo "<td>" . $row["nombre"] . "</td>";
-            echo "<td>" . $row["fimatge"] . "</td>";
-            echo "<td>" . $row["data"] . "</td>";
+            echo "<td>" . $row["fecha"] . "</td>";
+            echo "<td>" . $row["imagen"] . "</td>";
             echo '<td><a class="btn btn-warning" href="index.php?controller=producte&action=actualitzar&user_id=' . $row["id"] . '" role="button">Actualizar</a></td>';
             echo '<td><a class="btn btn-danger" href="index.php?controller=producte&action=EsborrarUsuari&user_id=' . $row["id"] . '" role="button">Eliminar</a></td>';
             echo "</tr>";

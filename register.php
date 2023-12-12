@@ -85,12 +85,9 @@
         <input type="password" name="contrasenya2" id="" required placeholder="Repeteix la teva contrasenya">
         <br>
         <br>
-        <input type="submit" name="submit" value="Registrarse">
+        <a href="login.php"><button>Registrat</button></a>
     </form>      <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="registerModalLabel">Registro</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+          
   
         <?php
             if(isset($_POST['submit'])){
@@ -102,7 +99,7 @@
                     $server = "localhoost";
                     $user = "root";
                     $password = "";
-                    $dbname = "stock_de_stock";
+                    $dbname = "gestio_de_stock";
                     // Conectar
                     $db = new mysqli($server, $user, $password, $dbname);
                     echo "222";
@@ -112,7 +109,7 @@
                     }
                     else{
                     $contrasenya=password_hash($contrasenya, PASSWORD_DEFAULT);
-                    $stmt = $db->prepare("INSERT INTO `usuari` (`username`, `Contrasenya`) VALUES (?, ?)");
+                    $stmt = $db->prepare("INSERT INTO `usuarios` (`nombre_usuario`, `contrasenya`) VALUES (?, ?)");
                     $stmt->bind_param('ss', $nom, $contrasenya);
                     $stmt->execute();
                     $stmt->close();

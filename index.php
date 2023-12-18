@@ -40,58 +40,47 @@
     require_once "autoload.php";
 
     if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Verificar si se ha enviado una imagen
+ 
         if (!empty($_POST['foto'])) {
-            // Obtener los datos del formulario
+
             $categoria = $_POST['categoria'];
             $nombre = $_POST['nombre'];
             $fecha = $_POST['fecha'];
             $estanteria = $_POST['estanteria'];
             $imagen = $_POST['imagen'];
 
-            // Obtener la foto en formato base64
+
             $fotoBase64 = $_POST['foto'];
 
-            // Decodificar la imagen base64
             $fotoBinaria = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $fotoBase64));
 
-            // Nombre del archivo para la imagen
             $nombreArchivo = 'IMG/' . uniqid('imagen_') . '.png';
 
-            // Ruta completa del archivo
             $rutaArchivo = __DIR__ . '/' . $nombreArchivo;
 
-            // Guardar la imagen en la carpeta "IMG"
             file_put_contents($rutaArchivo, $fotoBinaria);
 
-            // Conexión a la base de datos (ajusta las credenciales según tu configuración)
-            $servername = "localhost"; // Cambia esto si es diferente en tu configuración
-            $username = "root";          // Cambia esto si es diferente en tu configuración
-            $password = "";              // Cambia esto si es diferente en tu configuración
-            $dbname = "gestio_de_stock"; // Cambia esto con el nombre de tu base de datos
+            $servername = "localhost";
+            $username = "root";          
+            $password = "";              
+            $dbname = "gestio_de_stock"; 
 
             $conn = new mysqli($servername, $username, $password, $dbname);
 
-            // Verificar la conexión
             if ($conn->connect_error) {
                 die("Conexión fallida: " . $conn->connect_error);
             }
 
-            // Preparar la sentencia SQL
             $sql = "INSERT INTO productos (categoria, nombre, fecha, estanteria, imagen) VALUES ('$categoria', '$nombre', '$fecha', '$estanteria', '$nombreArchivo')";
 
-            // Ejecutar la sentencia SQL
             if ($conn->query($sql) === TRUE) {
                 echo "Registro insertado correctamente en la base de datos.";
             } else {
                 echo "Error al insertar el registro: " . $conn->error;
             }
-
-            // Cerrar la conexión a la base de datos
             $conn->close();
 
-            // Resto del procesamiento del formulario
-            // ...
+      
         } else {
             echo "Error: Debes seleccionar una imagen.";
         }
@@ -112,13 +101,11 @@
     }
     ?>
 
-    <!-- Modal de Registro -->
+
     <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
-        <!-- ... (Resto de tu HTML modal) ... -->
+
     </div>
 
-    <!--content end-->
-    <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
 </body>

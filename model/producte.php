@@ -122,9 +122,10 @@ require_once "database.php";
     }
     public function insertar(){
         $connexio = database::connectar();
-        $sql = "INSERT INTO productos VALUES (null,'$this->categoria','$this->nombre','$this->fecha','$this->imagen')";
+        $sql = "INSERT INTO productos (categoria, nombre, fecha, imagen) VALUES ('$this->categoria', '$this->nombre', '$this->fecha', '$this->imagen')";
         $result = mysqli_query($connexio, $sql);
         return $result;
+
     }
 }
     ?>

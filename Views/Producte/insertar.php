@@ -1,20 +1,22 @@
 <div class="form-group">
 <form class="form-control" action="" method="post">
 
-    <label for="nom">categoria	</label>
-    <input class="form-control" type="text" name="categoria	" id="nom" required>
+    <label for="categoria">categoria	</label>
+    <input class="form-control" type="text" name="categoria	" id="categoria" required>
 
-    <label for="cognoms">nombre</label>
-    <input class="form-control" type="text" name="nombre" id="cognoms" required>
+    <label for="nombre">nombre</label>
+    <input class="form-control" type="text" name="nombre" id="nombre" required>
 
     <label for="fecha">fecha</label>
-    <input class="form-control" type="date" name="fecha" id="email" required>
+    <input class="form-control" type="date" name="fecha" id="fecha" required>
 
     <label for="imagen">imagen</label>
-    <input class="form-control" type="password" name="password" id="password" required>
+    <input class="form-control" type="text" name="imagen" id="imagen" required>
 
-    <input class="form-control" type="submit" value="Insertar">
+    <br><input class="btn btn-primary" type="submit" value="Insertar">
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
 
 
 </form>

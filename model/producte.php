@@ -7,6 +7,7 @@ require_once "database.php";
         public $nombre;
         public $imagen;
         public $fecha;
+        public $estanteria;
           
      
         
@@ -122,10 +123,30 @@ require_once "database.php";
     }
     public function insertar(){
         $connexio = database::connectar();
-        $sql = "INSERT INTO productos (categoria, nombre, fecha, imagen) VALUES ('$this->categoria', '$this->nombre', '$this->fecha', '$this->imagen')";
+        $sql = "INSERT INTO productos (categoria, nombre, fecha,estanteria, imagen) VALUES ('$this->categoria', '$this->nombre', '$this->fecha','$this->estanteria', '$this->imagen')";
         $result = mysqli_query($connexio, $sql);
         return $result;
 
     }
+
+        /**
+         * Get the value of estanteria
+         */ 
+        public function getEstanteria()
+        {
+                return $this->estanteria;
+        }
+
+        /**
+         * Set the value of estanteria
+         *
+         * @return  self
+         */ 
+        public function setEstanteria($estanteria)
+        {
+                $this->estanteria = $estanteria;
+
+                return $this;
+        }
 }
     ?>

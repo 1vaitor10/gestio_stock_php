@@ -27,8 +27,8 @@
                 <th>categoria</th>
                 <th>nombre</th>
                 <th>Fecha</th>
+                <th>estanteria</th>
                 <th>imatge</th>
-
                 <th>actualitzar</th>
                 <th>eliminar</th>
 
@@ -43,6 +43,7 @@
                 echo "<td>" . $row["categoria"] . "</td>";
                 echo "<td>" . $row["nombre"] . "</td>";
                 echo "<td>" . $row["fecha"] . "</td>";
+                echo "<td>" . $row["estanteria"] . "</td>";
                 echo "<td>" . $row["imagen"] . "</td>";
                 echo '<td><a class="btn btn-warning" href="index.php?controller=producte&action=actualitzar&user_id=' . $row["id"] . '" role="button">Actualizar</a></td>';
                 echo '<td><a class="btn btn-danger" href="index.php?controller=producte&action=EsborrarUsuari&user_id=' . $row["id"] . '" role="button">Eliminar</a></td>';
@@ -56,6 +57,7 @@
                 <th>categoria</th>
                 <th>nombre</th>
                 <th>Fecha</th>
+                <th>estanteria</th>
                 <th>imatge</th>
             </tr>
         </tfoot>

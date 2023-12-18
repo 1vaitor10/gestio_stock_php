@@ -16,7 +16,7 @@
         <label for="imagen">imagen</label>
         <input class="form-control" type="text" name="imagen" id="imagen" required>
 
-        <br><input class="btn btn-primary" type="submit" value="Insertar">
+        <input class="form-control" type="submit" value="Insertar">
 
     </form>
 </div>

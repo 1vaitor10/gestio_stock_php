@@ -46,7 +46,7 @@
                 echo "<td>" . $row["estanteria"] . "</td>";
                 echo "<td>" . $row["imagen"] . "</td>";
                 echo '<td><a class="btn btn-warning" href="index.php?controller=producte&action=actualitzar&user_id=' . $row["id"] . '" role="button">Actualizar</a></td>';
-                echo '<td><a class="btn btn-danger" href="index.php?controller=producte&action=EsborrarUsuari&user_id=' . $row["id"] . '" role="button">Eliminar</a></td>';
+                echo '<td><a class="btn btn-danger" href="index.php?controller=producte&action=Esborrarproducte&producte_id=' . $row["id"] . '" role="button">Eliminar</a></td>';
                 echo "</tr>";
             }
             ?>

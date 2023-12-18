@@ -1,5 +1,5 @@
-<div class="form-group">
-    <form action="" method="post">
+<div class="container">
+<form class="form-control" action="index.php?controller=producte&action=crear" method="post">
 
         <label for="categoria">categoria</label>
         <input class="form-control" type="text" name="categoria" id="categoria" required>

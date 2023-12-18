@@ -128,6 +128,19 @@ require_once "database.php";
         return $result;
 
     }
+    public function mostrarpercategoria(){
+        $connexio = database::connectar();
+        $sql = "SELECT * FROM productos WHERE categoria = $this->categoria";
+        $result = mysqli_query($connexio, $sql);
+        return $result;
+    }
+    public function actualitzar(){
+        $connexio = database::connectar();
+        
+        $sql = "UPDATE productos SET categoria = '$this->categoria', nombre = '$this->nombre', fecha = '$this->fecha', estanteria = '$this->estanteria' , imagen= '$this->imagen' WHERE id = $this->id";
+        $result = mysqli_query($connexio, $sql);
+        return $result;
+    }
 
         /**
          * Get the value of estanteria

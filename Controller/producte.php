@@ -23,5 +23,24 @@ class producteController {
         $producte->insertar();
         header("Location:index.php?controller=producte&action=mostrartot");
     }
+    public function actualitzar(){
+        $producte = new producte();
+        $producte->setCategoria($_GET["categoria"]);
+        $resultat = $producte->mostrarpercategoria();
+        $row = $resultat->fetch_assoc();
+        require_once "Views/Producte/actualitzar.php";
+    }
+ 
+    public function modificar(){
+        $producte = new producte();
+        $producte->setCategoria($_POST["categoria"]);
+        $producte->setNombre($_POST["nombre"]);
+        $producte->setImagen($_POST["imagen"]);
+        $producte->setFecha($_POST["fecha"]);
+        $producte->setEstanteria($_POST["estanteria"]);
+        $producte->actualitzar();
+        header("Location: index.php?controller=producte&action=mostrartot");
+    }
+       
 }
 ?>

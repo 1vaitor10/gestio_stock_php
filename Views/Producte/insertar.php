@@ -24,14 +24,10 @@
         <input class="form-control" type="text" name="estanteria" id="estanteria" required>
 
         <label for="imagen">Imagen</label>
-        <input class="form-control" type="text" name="imagen" id="imagen" required>
-
-        <!-- Nuevo campo para la cámara -->
-        <label for="camara">Cámara</label>
-        <video id="camara" class="form-control" autoplay playsinline></video>
+        <video id="camara"  autoplay playsinline></video>
         <button type="button" id="tomarFoto" class="btn btn-primary">Tomar Foto</button>
 
-        <!-- Campo oculto para almacenar la foto en formato base64 -->
+    
         <input type="hidden" name="foto" id="foto">
 
         <!-- Mostrar la foto tomada (opcional) -->

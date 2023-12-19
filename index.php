@@ -39,52 +39,7 @@
     <?php
     require_once "autoload.php";
 
-    if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
- 
-        if (!empty($_POST['foto'])) {
-
-            $categoria = $_POST['categoria'];
-            $nombre = $_POST['nombre'];
-            $fecha = $_POST['fecha'];
-            $estanteria = $_POST['estanteria'];
-            $imagen = $_POST['imagen'];
-
-
-            $fotoBase64 = $_POST['foto'];
-
-            $fotoBinaria = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $fotoBase64));
-
-            $nombreArchivo = 'IMG/' . uniqid('imagen_') . '.png';
-
-            $rutaArchivo = __DIR__ . '/' . $nombreArchivo;
-
-            file_put_contents($rutaArchivo, $fotoBinaria);
-
-            $servername = "localhost";
-            $username = "root";          
-            $password = "";              
-            $dbname = "gestio_de_stock"; 
-
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
-            if ($conn->connect_error) {
-                die("Conexión fallida: " . $conn->connect_error);
-            }
-
-            $sql = "INSERT INTO productos (categoria, nombre, fecha, estanteria, imagen) VALUES ('$categoria', '$nombre', '$fecha', '$estanteria', '$nombreArchivo')";
-
-            if ($conn->query($sql) === TRUE) {
-                echo "Registro insertado correctamente en la base de datos.";
-            } else {
-                echo "Error al insertar el registro: " . $conn->error;
-            }
-            $conn->close();
-
-      
-        } else {
-            echo "Error: Debes seleccionar una imagen.";
-        }
-    }
+    
 
     if (isset($_GET["controller"]) && class_exists($_GET["controller"])) {
         $nomcontroller = $_GET["controller"] . "controller";

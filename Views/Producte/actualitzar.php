@@ -1,5 +1,5 @@
 <div class="form-group">
-<form class="form-control" action="index.php?controller=producto&action=modificar" method="post">
+<form class="form-control" action="index.php?controller=producte&action=modificar" method="post">
 
 <input class="form-control" type="hidden" name="id" value="<?php echo $row["id"];?>" id="id" required>
 

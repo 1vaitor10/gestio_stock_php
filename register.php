@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
             die("La conexión ha fallado, error número " . $db->connect_errno . ": " . $db->connect_error);
         } else {
             $contrasenya = password_hash($contrasenya, PASSWORD_DEFAULT);
-            $stmt = $db->prepare("INSERT INTO `usuarios` (`contraseña`,`nombre_usuario`) VALUES (?, ?)");
+            $stmt = $db->prepare("INSERT INTO `usuarios` (`nombre_usuario`,`contraseña`) VALUES (?, ?)");
             $stmt->bind_param('ss', $nom, $contrasenya);
             $stmt->execute();
             $stmt->close();

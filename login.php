@@ -9,38 +9,38 @@ if (isset($_POST['submit'])) {
     $password = "";
     $dbname = "gestio_de_stock";
 
-    // Conectar de forma segura
+    
     $db = new mysqli($server, $user, $password, $dbname);
 
-    // Comprobar conexión
     if ($db->connect_error) {
         die("La conexión ha fallado, error número " . $db->connect_errno . ": " . $db->connect_error);
     }
-
-    // Utilizar consultas preparadas para evitar inyecciones SQL
+   
+    
     $stmt = $db->prepare("SELECT `contraseña`, `nombre_usuario` FROM `usuarios` WHERE `nombre_usuario`=? ");
     $stmt->bind_param('s', $nom);
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
-    $stmt->close();
-    $db->close();
-
+    
+    echo  $row['contraseña'];
     if ($row && password_verify($contrasenya, $row['contraseña'])) {
         $_SESSION['nom'] = $nom;
-        header("Location: mostrar.php");
-        exit(); // Asegura que no se envíe nada más después de la redirección
+        header("Location: index.php?controller=producte&action=mostrartot");
+        exit(); 
     } else {
-        // Evitar dar demasiada información sobre el fallo
-        echo "Les credencials son incorrectes";
+              echo "Les credencials son incorrectes";
     }
+    $stmt->close();
+    $db->close();
 }
 
 if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
     session_destroy();
     header("Location: login.php");
-    exit(); // Asegura que no se envíe nada más después de la redirección
+    exit(); 
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +71,7 @@ if (isset($_GET["logout"]) && $_GET["logout"] == 1) {
         <a href="register.php" class="mt-3 btn btn-secondary">Registrat</a>
     </div>
 
-    <!-- Enlaces CDN de Bootstrap JS y Popper.js (requerido para ciertos componentes de Bootstrap) -->
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>

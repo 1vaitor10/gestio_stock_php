@@ -23,6 +23,9 @@
         <label for="estanteria">Estantería</label>
         <input class="form-control" type="text" name="estanteria" id="estanteria" required>
 
+        <label for="Arxivat">Arxivat</label>
+        <input class="form-control" type="text" name="Arxivat" id="Arxivat" required>
+
         <label for="imagen">Imagen</label>
         <video id="camara"  autoplay playsinline></video>
         <button type="button" id="tomarFoto" class="btn btn-primary">Tomar Foto</button>

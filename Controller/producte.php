@@ -18,6 +18,7 @@ class producteController {
         $producte->setImagen($_POST["imagen"]);
         $producte->setFecha($_POST["fecha"]);
         $producte->setEstanteria($_POST["estanteria"]);
+        $producte->setArxivat($_POST["Arxivat"]);
     
 
         $producte->insertar();
@@ -39,6 +40,7 @@ class producteController {
         $producte->setImagen($_POST["imagen"]);
         $producte->setFecha($_POST["fecha"]);
         $producte->setEstanteria($_POST["estanteria"]);
+        $producte->setArxivat($_POST["Arxivat"]);
         $producte->actualitzar();
         header("Location: index.php?controller=producte&action=mostrartot");
     }

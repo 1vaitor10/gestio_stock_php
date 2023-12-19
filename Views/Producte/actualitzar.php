@@ -15,8 +15,11 @@
 <label for="estanteria">estanteria</label>
 <input class="form-control" type="text" name="estanteria" value="<?php echo $row["estanteria"];?>" id="estanteria" required>
 
-<label for="imagen">imagen</label>
-<input class="form-control" type="text" name="imagen" value="<?php echo $row["imagen"];?>" id="imagen" required>
+<label for="Arxivat">Arxivat</label>
+<input class="form-control" type="text" name="Arxivat" value="<?php echo $row["Arxivat"];?>" id="Arxivat" required>
+
+<label for="Imagen">Imagen</label>
+<input class="form-control" type="text" name="Imagen" value="<?php echo $row["Imagen"];?>" id="Imagen" required>
 
 
 

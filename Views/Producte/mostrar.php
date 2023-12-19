@@ -30,7 +30,7 @@
                 <th>estanteria</th>
                 <th>imatge</th>
                 <th>actualitzar</th>
-                <th>eliminar</th>
+                <th>arxivar</th>
 
 
             </tr>
@@ -45,8 +45,9 @@
                 echo "<td>" . $row["fecha"] . "</td>";
                 echo "<td>" . $row["estanteria"] . "</td>";
                 echo "<td>" . $row["imagen"] . "</td>";
+              
                 echo '<td><a class="btn btn-warning" href="index.php?controller=producte&action=actualitzar&id=' . $row["id"] . '" role="button">Actualizar</a></td>';
-                echo '<td><a class="btn btn-danger" href="index.php?controller=producte&action=Esborrarproducte&id=' . $row["id"] . '" role="button">Eliminar</a></td>';
+                echo '<td><a class="btn btn-danger" href="index.php?controller=producte&action=archivar&id=' . $row["id"] . '" role="button">Archivar</a></td>';
                 echo "</tr>";
             }
             ?>
@@ -59,6 +60,7 @@
                 <th>Fecha</th>
                 <th>estanteria</th>
                 <th>imatge</th>
+                
             </tr>
         </tfoot>
     </table>

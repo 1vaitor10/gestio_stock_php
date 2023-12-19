@@ -8,6 +8,7 @@ require_once "database.php";
         public $imagen;
         public $fecha;
         public $estanteria;
+        public $Arxivat;
           
      
         
@@ -123,7 +124,7 @@ require_once "database.php";
     }
     public function insertar(){
         $connexio = database::connectar();
-        $sql = "INSERT INTO productos (categoria, nombre, fecha,estanteria, imagen) VALUES ('$this->categoria', '$this->nombre', '$this->fecha','$this->estanteria', '$this->imagen')";
+        $sql = "INSERT INTO productos (categoria, nombre, fecha,estanteria, imagen,Arxivat) VALUES ('$this->categoria', '$this->nombre', '$this->fecha','$this->estanteria', '$this->imagen','$this->Arxivat')";
         $result = mysqli_query($connexio, $sql);
         return $result;
 
@@ -137,7 +138,7 @@ require_once "database.php";
     public function actualitzar(){
         $connexio = database::connectar();
         
-        $sql = "UPDATE productos SET categoria = '$this->categoria', nombre = '$this->nombre', fecha = '$this->fecha', estanteria = '$this->estanteria' , imagen= '$this->imagen' WHERE id = $this->id";
+        $sql = "UPDATE productos SET categoria = '$this->categoria', nombre = '$this->nombre', fecha = '$this->fecha', estanteria = '$this->estanteria' , imagen= '$this->imagen',Arxivat= '$this->Arxivat' WHERE id = $this->id";
         $result = mysqli_query($connexio, $sql);
         return $result;
     }
@@ -158,6 +159,26 @@ require_once "database.php";
         public function setEstanteria($estanteria)
         {
                 $this->estanteria = $estanteria;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of Arxivat
+         */ 
+        public function getArxivat()
+        {
+                return $this->Arxivat;
+        }
+
+        /**
+         * Set the value of Arxivat
+         *
+         * @return  self
+         */ 
+        public function setArxivat($Arxivat)
+        {
+                $this->Arxivat = $Arxivat;
 
                 return $this;
         }

@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_POST['submit'])) {
     $nom = $_POST['nom'];
-    $contrasenya = $_POST['contrasenya'];
+    $contrasenya = $_POST['contraseña'];
     $server = "localhost";
     $user = "root";
     $password = "";

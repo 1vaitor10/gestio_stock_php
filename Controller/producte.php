@@ -25,14 +25,15 @@ class producteController {
     }
     public function actualitzar(){
         $producte = new producte();
-        $producte->setCategoria($_GET["categoria"]);
-        $resultat = $producte->mostrarpercategoria();
+        $producte->setId($_GET["id"]);
+        $resultat = $producte->mostrarperid();
         $row = $resultat->fetch_assoc();
         require_once "Views/Producte/actualitzar.php";
     }
  
     public function modificar(){
         $producte = new producte();
+        $producte->setId($_POST["id"]);
         $producte->setCategoria($_POST["categoria"]);
         $producte->setNombre($_POST["nombre"]);
         $producte->setImagen($_POST["imagen"]);

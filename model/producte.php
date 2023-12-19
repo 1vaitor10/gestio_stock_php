@@ -128,9 +128,9 @@ require_once "database.php";
         return $result;
 
     }
-    public function mostrarpercategoria(){
+    public function mostrarperid(){
         $connexio = database::connectar();
-        $sql = "SELECT * FROM productos WHERE categoria = $this->categoria";
+        $sql = "SELECT * FROM productos WHERE id = $this->id";
         $result = mysqli_query($connexio, $sql);
         return $result;
     }

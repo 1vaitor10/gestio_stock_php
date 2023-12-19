@@ -1,6 +1,7 @@
 <div class="form-group">
-<form class="form-control" action="index.php?controller=usuari&action=modificar" method="post">
+<form class="form-control" action="index.php?controller=producto&action=modificar" method="post">
 
+<input class="form-control" type="hidden" name="id" value="<?php echo $row["id"];?>" id="id" required>
 
 <label for="categoria">categoria</label>
 <input class="form-control" type="text" name="categoria" value="<?php echo $row["categoria"];?>" id="categoria" required>

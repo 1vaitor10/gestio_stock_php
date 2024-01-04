@@ -31,7 +31,7 @@ class producteController {
         $row = $resultat->fetch_assoc();
         require_once "Views/Producte/actualitzar.php";
     }
- 
+     
     public function modificar(){
         $producte = new producte();
         $producte->setId($_POST["id"]);

@@ -32,7 +32,6 @@
                 <th>actualitzar</th>
                 <th>arxivar</th>
 
-
             </tr>
         </thead>
         <tbody>

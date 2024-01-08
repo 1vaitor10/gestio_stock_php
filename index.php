@@ -24,14 +24,14 @@
                     <a class="nav-link active" aria-current="page" href="index.php?controller=producte&action=mostrartot">Producte</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php?controller=nota&action=llistar">Notes</a>
+                    <a class="nav-link active" aria-current="page" href="index.php?controller=arxivar&action=mostrarse">Arxivar</a>
                 </li>
             </ul>
         </div>
         <div class="ml-auto">
             <form class="form-inline" id="registerForm" action="index.php" method="post" enctype="multipart/form-data">
                 <a class="btn btn-light mr-2" href="login.php">Login</a>
-                <button type="submit" class="btn btn-primary">Registrar</button>
+             
             </form>
         </div>
     </nav>

@@ -36,7 +36,7 @@
         </thead>
         <tbody>
             <?php
-            while ($row = $productes->fetch_assoc()) {
+            while ($row = $arxivars->fetch_assoc()) {
                 echo "<tr>";
                 echo "<td>" . $row["id"] . "</td>";
                 echo "<td>" . $row["categoria"] . "</td>";
@@ -45,7 +45,7 @@
                 echo "<td>" . $row["estanteria"] . "</td>";
                 echo "<td>" . $row["imagen"] . "</td>";
               
-                echo '<td><a class="btn btn-warning" href="index.php?controller=producte&action=actualitzar&id=' . $row["id"] . '" role="button">Actualizar</a></td>';
+                echo '<td><a class="btn btn-warning" href="index.php?controller=arxivar&action=actualitzar&id=' . $row["id"] . '" role="button">Actualizar</a></td>';
                 
                 echo "</tr>";
             }

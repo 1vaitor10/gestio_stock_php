@@ -1,7 +1,7 @@
 <?php 
 
 require_once "database.php";  
-    class producte{   
+    class arxivar{   
         public $id;
         public $categoria;
         public $nombre;
@@ -118,7 +118,7 @@ require_once "database.php";
     
     public function mostrar(){
         $connexio = database::connectar();
-        $sql = "SELECT * FROM `productos` WHERE Arxivat=0";
+        $sql = "SELECT * FROM `productos` WHERE Arxivat=1";
         $result = mysqli_query($connexio, $sql);
         return $result;
     }

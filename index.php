@@ -26,6 +26,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="index.php?controller=arxivar&action=mostrarse">Arxivar</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.php?controller=prestec&action=mostrarse">Prestec</a>
+                </li>
             </ul>
         </div>
         <div class="ml-auto">

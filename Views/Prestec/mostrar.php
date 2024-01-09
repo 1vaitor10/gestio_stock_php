@@ -24,29 +24,31 @@
         <thead>
             <tr>
                 <th>id</th>
-                <th>categoria</th>
-                <th>nombre</th>
-                <th>Fecha</th>
-                <th>estanteria</th>
-                <th>imatge</th>
-                <th>actualitzar</th>
+                <th>Id_producto</th>
+                <th>Id_usuario</th>
+                <th>nombre_usuario</th>
+                <th>cantidad_productos</th>
+                <th>data</th>
+
+                <th>delete</th>
                 
 
             </tr>
         </thead>
         <tbody>
             <?php
-            while ($row = $arxivars->fetch_assoc()) {
+            while ($row = $prestecs->fetch_assoc()) {
                 echo "<tr>";
                 echo "<td>" . $row["id"] . "</td>";
-                echo "<td>" . $row["categoria"] . "</td>";
-                echo "<td>" . $row["nombre"] . "</td>";
-                echo "<td>" . $row["fecha"] . "</td>";
-                echo "<td>" . $row["estanteria"] . "</td>";
-                echo "<td>" . $row["imagen"] . "</td>";
+                echo "<td>" . $row["id_producto"] . "</td>";
+                echo "<td>" . $row["id_usuario"] . "</td>";
+                echo "<td>" . $row["nombre_usuario"] . "</td>";
+                echo "<td>" . $row["cantidad_productos"] . "</td>";
+                echo "<td>" . $row["data"] . "</td>";
+                
               
-                echo '<td><a class="btn btn-warning" href="index.php?controller=arxivar&action=actualitzar&id=' . $row["id"] . '" role="button">Actualizar</a></td>';
-             
+                echo '<td><a class="btn btn-warning" href="index.php?controller=prestec&action=eliminar&id=' . $row["id"] . '" role="button">Delete</a></td>';
+                
 
                 echo "</tr>";
             }
@@ -54,12 +56,14 @@
         </tbody>
         <tfoot>
             <tr>
-                <th>id</th>
-                <th>categoria</th>
-                <th>nombre</th>
-                <th>Fecha</th>
-                <th>estanteria</th>
-                <th>imatge</th>
+                 <th>id</th>
+                <th>Id_producto</th>
+                <th>Id_usuario</th>
+                <th>nombre_usuario</th>
+                <th>cantidad_productos</th>
+                <th>data</th>
+                <th>delete</th>
+                
                 
             </tr>
         </tfoot>
@@ -98,7 +102,7 @@
     }
 });
     </script>
-    <br><a class="btn btn-primary btn-lg active" href="index.php?controller=producte&action=insertar">Insertar</a></button>
+    <br><a class="btn btn-primary btn-lg active" href="index.php?controller=prestec&action=insertar">Insertar</a></button>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
 </body>

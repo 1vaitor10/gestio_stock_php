@@ -29,7 +29,7 @@
                 <th>estanteria</th>
                 <th>imatge</th>
                 <th>actualitzar</th>
-                <th>Prestec</th>
+                
                 
 
             </tr>

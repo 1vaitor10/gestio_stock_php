@@ -15,21 +15,14 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Inicio</a>
+        <a class="nav-link active" aria-current="page" href="index.php?controller=producte&action=mostrartot">Producte</a>
+        <a class="nav-link active" aria-current="page" href="index.php?controller=arxivar&action=mostrarse">Arxivar</a>
+        <a class="nav-link active" aria-current="page" href="index.php?controller=prestec&action=mostrarse">Prestec</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php?controller=producte&action=mostrartot">Producte</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php?controller=arxivar&action=mostrarse">Arxivar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php?controller=prestec&action=mostrarse">Prestec</a>
-                </li>
-            </ul>
+           
         </div>
         <div class="ml-auto">
             <form class="form-inline" id="registerForm" action="index.php" method="post" enctype="multipart/form-data">

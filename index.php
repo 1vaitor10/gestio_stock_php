@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestio de Stock</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- Agrega aquí tus enlaces a hojas de estilo personalizadas si es necesario -->
+
 </head>
 <body>
 
@@ -57,6 +57,7 @@
     } else {
         echo $_GET["controller"] . " no existe este controlador";
     }
+    
     ?>
 
     <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">

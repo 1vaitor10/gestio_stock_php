@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,7 +10,7 @@
 <body>
 
 <div class="container">
-    <form class="form-control" action="index.php?controller=producte&action=crear" method="post">
+    <form class="form-control" action="index.php?controller=producte&action=crear" method="post" enctype="multipart/form-data">
 
         <label for="categoria">Categoría</label>
         <input class="form-control" type="text" name="categoria" id="categoria" required>
@@ -27,14 +28,16 @@
         <input class="form-control" type="text" name="Arxivat" id="Arxivat" required>
 
         <label for="imagen">Imagen</label>
-        <video id="camara"  autoplay playsinline></video>
+        <video id="camara" autoplay playsinline></video>
         <button type="button" id="tomarFoto" class="btn btn-primary">Tomar Foto</button>
-
     
         <input type="hidden" name="foto" id="foto">
 
         <!-- Mostrar la foto tomada (opcional) -->
         <img id="fotoMostrada" class="img-fluid" style="display: none;">
+
+        <!-- Vista previa de la imagen capturada -->
+        <img id="capturedImagePreview" class="img-fluid" style="display: none;">
 
         <input class="form-control" type="submit" value="Insertar">
     </form>
@@ -43,13 +46,11 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
 <script>
-    // Código JavaScript para la cámara
     const camara = document.getElementById('camara');
     const tomarFotoBtn = document.getElementById('tomarFoto');
     const fotoInput = document.getElementById('foto');
     const fotoMostrada = document.getElementById('fotoMostrada');
 
-    // Obtener el flujo de video de la cámara
     navigator.mediaDevices.getUserMedia({ video: true })
         .then((stream) => {
             camara.srcObject = stream;
@@ -58,21 +59,19 @@
             console.error('Error al acceder a la cámara: ', error);
         });
 
-    // Tomar una foto cuando se hace clic en el botón
     tomarFotoBtn.addEventListener('click', () => {
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
         context.drawImage(camara, 0, 0, canvas.width, canvas.height);
 
-        // Convertir la imagen a formato base64
-        const fotoBase64 = canvas.toDataURL('image/png');
+        canvas.toBlob((blob) => {
+            // Mostrar la foto en la página directamente desde el Blob
+            fotoMostrada.src = URL.createObjectURL(blob);
+            fotoMostrada.style.display = 'block';
 
-        // Mostrar la foto (opcional)
-        fotoMostrada.src = fotoBase64;
-        fotoMostrada.style.display = 'block';
-
-        // Asignar la imagen al campo oculto
-        fotoInput.value = fotoBase64;
+            // Asignar la imagen al campo oculto (si es necesario)
+            fotoInput.value = URL.createObjectURL(blob);
+        }, 'image/png');
     });
 </script>
 

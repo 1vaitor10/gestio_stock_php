@@ -10,10 +10,8 @@ if (isset($_POST['submit'])) {
         $password = "";
         $dbname = "gestio_de_stock";
 
-        // Conectar
         $db = new mysqli($server, $user, $password, $dbname);
 
-        // Comprobar conexión
         if ($db->connect_error) {
             die("La conexión ha fallado, error número " . $db->connect_errno . ": " . $db->connect_error);
         } else {
@@ -24,8 +22,8 @@ if (isset($_POST['submit'])) {
             $stmt->close();
             $db->close();
 
-            header("Location:login.php"); // Redirigir con PHP
-            exit(); // Asegura que no se envíe nada más después de la redirección
+            header("Location:login.php"); 
+            exit(); 
         }
     } else {
         echo "Registro fallido: Las contraseñas no coinciden";
@@ -40,7 +38,6 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <!-- Enlaces CDN de Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -65,7 +62,6 @@ if (isset($_POST['submit'])) {
         <a href="login.php" class="mt-3 btn btn-secondary">Ya tengo cuenta</a>
     </div>
 
-    <!-- Enlaces CDN de Bootstrap JS y Popper.js (requerido para ciertos componentes de Bootstrap) -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>

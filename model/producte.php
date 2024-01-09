@@ -10,12 +10,6 @@ require_once "database.php";
         public $estanteria;
         public $Arxivat;
           
-     
-        
-    
-        
-
-
         /**
          * Get the value of id
          */ 
@@ -115,35 +109,8 @@ require_once "database.php";
 
                 return $this;
         }
-    
-    public function mostrar(){
-        $connexio = database::connectar();
-        $sql = "SELECT * FROM `productos` WHERE Arxivat=0";
-        $result = mysqli_query($connexio, $sql);
-        return $result;
-    }
-    public function insertar(){
-        $connexio = database::connectar();
-        $sql = "INSERT INTO productos (categoria, nombre, fecha,estanteria, imagen,Arxivat) VALUES ('$this->categoria', '$this->nombre', '$this->fecha','$this->estanteria', '$this->imagen','$this->Arxivat')";
-        $result = mysqli_query($connexio, $sql);
-        return $result;
 
-    }
-    public function mostrarperid(){
-        $connexio = database::connectar();
-        $sql = "SELECT * FROM productos WHERE id = $this->id";
-        $result = mysqli_query($connexio, $sql);
-        return $result;
-    }
-    public function actualitzar(){
-        $connexio = database::connectar();
-        
-        $sql = "UPDATE productos SET categoria = '$this->categoria', nombre = '$this->nombre', fecha = '$this->fecha', estanteria = '$this->estanteria' , imagen= '$this->imagen',Arxivat= '$this->Arxivat' WHERE id = $this->id";
-        $result = mysqli_query($connexio, $sql);
-        return $result;
-    }
-
-        /**
+          /**
          * Get the value of estanteria
          */ 
         public function getEstanteria()
@@ -182,5 +149,49 @@ require_once "database.php";
 
                 return $this;
         }
+    
+
+    public function mostrar(){
+        $connexio = database::connectar();
+        $sql = "SELECT * FROM productos";
+        $result = mysqli_query($connexio, $sql);
+        return $result;
+    }
+    public function insertar()
+{
+    $connexio = database::connectar();
+
+    $categoria = mysqli_real_escape_string($connexio, $this->categoria);
+    $nombre = mysqli_real_escape_string($connexio, $this->nombre);
+    $fecha = mysqli_real_escape_string($connexio, $this->fecha);
+    $estanteria = mysqli_real_escape_string($connexio, $this->estanteria);
+    $arxivat = mysqli_real_escape_string($connexio, $this->Arxivat);
+
+    // Procesar la imagen
+    $imagen = $_FILES['imagen']['tmp_name'];
+    $ruta_imagen = 'IMG/' . $_FILES['imagen']['name'];
+    move_uploaded_file($imagen, $ruta_imagen);
+
+    $sql = "INSERT INTO productos (categoria, nombre, fecha, estanteria, imagen, Arxivat) 
+            VALUES ('$categoria', '$nombre', '$fecha', '$estanteria', '$ruta_imagen', '$arxivat')";
+    $result = mysqli_query($connexio, $sql);
+
+    return $result;
+}
+    public function mostrarperid(){
+        $connexio = database::connectar();
+        $sql = "SELECT * FROM productos WHERE id = $this->id";
+        $result = mysqli_query($connexio, $sql);
+        return $result;
+        
+    }
+    public function actualitzar(){
+        $connexio = database::connectar();
+        
+        $sql = "UPDATE productos SET categoria = '$this->categoria', nombre = '$this->nombre', fecha = '$this->fecha', estanteria = '$this->estanteria' , imagen= '$this->imagen',Arxivat= '$this->Arxivat' WHERE id = $this->id";
+        $result = mysqli_query($connexio, $sql);
+        return $result;
+    }
+
 }
     ?>
